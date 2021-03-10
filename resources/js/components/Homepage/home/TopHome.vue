@@ -11,14 +11,13 @@
                         <img class="transition" alt="" :src="'/images/types/' + type.photo">
                     </a>
                     <div class="info-project">
-                        <router-link  href="#">
+                        <a  :href="'/type-filter/' + type.slug">
                             {{type.name}} 
-                        </router-link>
+                        </a>
                     </div>
                 </div>
             </div>
             <div class="clear"></div>
-            <div class="more-button-box"><a href="#" class="transition">Xem tất cả</a></div>
         </div>
     </div>
 
@@ -36,7 +35,7 @@ export default {
             axios.get('api/type').then(response=>{
                 this.types = response.data.alltype;
             })
-        }
+        },
     },
     mounted(){
         this.getTypes();

@@ -16,7 +16,7 @@ class ArticelController extends Controller
     public function index(Request $request)
     {
         //
-        $perPage = $request->get('perPage', 8);
+        $perPage = $request->get('perPage', 6);
         $sortCol = $request->get('sortCol', 'updated_at');
         $sortType = $request->get('sortType', 'desc');
         $type = $request->get('type', 'all');
@@ -32,8 +32,8 @@ class ArticelController extends Controller
             ->orderBy($sortCol, $sortType)
             ->with('type', 'author')
             ->paginate($perPage);
-        $allArticles = Articel::all();
-        return response()->json(['articles'=>$articles,'allarticle'=>$allArticles]);
+        // $allArticles = Articel::latest()->get();
+        return response()->json(['articles'=>$articles]);
     }
 
     /**
@@ -87,10 +87,10 @@ class ArticelController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show(Request $request, $id)
+    public function show($slug)
     {
         //
-        $article= Articel::where($id)->get()->load('type');
+        $article= Articel::where('slug','=',$slug)->get();
         return response()->json($article);
     }
 

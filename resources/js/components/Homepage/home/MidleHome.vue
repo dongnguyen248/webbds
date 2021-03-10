@@ -5,64 +5,21 @@
     </div>
     <div class="media-container-row">
 
-        <div class="card p-3 col-12 col-md-6 col-lg-4">
+        <div class="card p-3 col-12 col-md-6 col-lg-4" v-for="article in articles" :key="article.id">
             <div class="card-wrapper">
                 <div class="card-img">
-                    <img src="/images/news/526755958808.jpg" alt="Mobirise" media-simple="true">
+                    <img :src="'/images/article/' + article.photo" alt="Mobirise" media-simple="true">
                 </div>
                 <div class="card-box">
-                    <h4 class="card-title mbr-fonts-style display-7">
-                        No Coding
+                    <h4 class="card-title  display-7">
+                        {{article.title.toUpperCase()}}
                     </h4>
-                    <p class="mbr-text mbr-fonts-style display-7">
-                        Mobirise is an easy website builder - just drop site elements to your page, add content and style it to look the way you like.
+                    <p class="mbr-text mbr-fonts-style display-7" v-html="article.content.substring(0,200)+'...'">
                     </p>
                 </div>
                 <div class="mbr-section-btn text-center">
-                    <a href="https://mobirise.com" class="btn btn-primary display-4">
-                        Learn More
-                    </a>
-                </div>
-            </div>
-        </div>
-
-        <div class="card p-3 col-12 col-md-6 col-lg-4">
-            <div class="card-wrapper">
-                <div class="card-img">
-                    <img src="/images/news/526755958808.jpg" alt="Mobirise" media-simple="true">
-                </div>
-                <div class="card-box">
-                    <h4 class="card-title mbr-fonts-style display-7">
-                        Mobile Friendly
-                    </h4>
-                    <p class="mbr-text mbr-fonts-style display-7">
-                        All sites you make with Mobirise are mobile-friendly. You don't have to create a special mobile version of your site.
-                    </p>
-                </div>
-                <div class="mbr-section-btn text-center">
-                    <a href="https://mobirise.com" class="btn btn-primary display-4">
-                        Learn More
-                    </a>
-                </div>
-            </div>
-        </div>
-
-        <div class="card p-3 col-12 col-md-6 col-lg-4">
-            <div class="card-wrapper">
-                <div class="card-img">
-                    <img src="/images/news/526755958808.jpg" alt="Mobirise" media-simple="true">
-                </div>
-                <div class="card-box">
-                    <h4 class="card-title mbr-fonts-style display-7">
-                        Unique Styles
-                    </h4>
-                    <p class="mbr-text mbr-fonts-style display-7">
-                        Mobirise offers many site blocks in several themes, and though these blocks are pre-made, they are flexible.
-                    </p>
-                </div>
-                <div class="mbr-section-btn text-center">
-                    <a href="https://mobirise.com" class="btn btn-primary display-4">
-                        Learn More
+                    <a :href="'/article-detail/' + article.slug" class="btn btn-primary display-4">
+                        Read More
                     </a>
                 </div>
             </div>
@@ -71,24 +28,34 @@
     </div>
 </div>
 </template>
+
 <script>
 export default {
-    data(){
-        return{
-            articles:[],
+    data() {
+        return {
+            articles: [],
 
         }
     },
-    methods:{
-        getArticle(){
-            axios.get('api/article').then(response=>{
-                this.articles = response.data.allarticle
+    methods: {
+        getArticle() {
+            axios.get('api/article').then(response => {
+                this.articles = response.data.articles.data;
             });
         }
+    },
+    mounted(){
+        this.getArticle();
     }
 }
 </script>
+
 <style scoped>
+.card-title {
+    float: none;
+    font-size: 2.1rem;
+}
+
 .media-container-row {
     display: -ms-flexbox;
     display: -webkit-flex;

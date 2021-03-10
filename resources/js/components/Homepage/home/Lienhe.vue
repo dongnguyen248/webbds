@@ -4,30 +4,28 @@
           <div class="row">
               <!-- Section Titile -->
               <div class="col-md-12 wow animated fadeInLeft" data-wow-delay=".2s">
-                  <h1 class="section-title">Love to Hear From You</h1>
+                  <h1 class="section-title">PHÒNG KINH DOANH VINHOMES</h1>
               </div>
           </div>
           <div class="row">
               <!-- Section Titile -->
               <div class="col-md-6 mt-3 contact-widget-section2 wow animated fadeInLeft" data-wow-delay=".2s">
-                <p>It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using Content.</p>
+                <p>Lưu ý: Quý khách hàng vui lòng liên hệ đăng ký trước khi xem nhà mẫu, để được chúng tôi hỗ trợ tốt nhất.</p>
 
                 <div class="find-widget">
-                 Company:  <a href="https://hostriver.ro">HostRiver</a>
+                 Công ty:  <a href="https://www.vinhomesmiennam.net">Vinhomes</a>
                 </div>
                 <div class="find-widget">
-                 Address: <a href="#">4435 Berkshire Circle Knoxville</a>
+                 Địa chỉ: <a href="https://www.vinhomesmiennam.net">Tầng 3, TTTM Vincom Megamall, 159 Xa Lộ Hà Nội, Phường Thảo Điền Q2, TP.HCM</a>
                 </div>
                 <div class="find-widget">
-                  Phone:  <a href="#">+ 879-890-9767</a>
+                  Hotline:  <a href="#"> 0949.535.078</a>
                 </div>
                 
                 <div class="find-widget">
-                  Website:  <a href="https://uny.ro">www.uny.ro</a>
+                  Website:  <a href="https://www.vinhomesmiennam.net">www.vinhomesmiennam.net</a>
                 </div>
-                <div class="find-widget">
-                   Program: <a href="#">Mon to Sat: 09:30 AM - 10.30 PM</a>
-                </div>
+               
               </div>
               <!-- contact form -->
               <div class="col-md-6 wow animated fadeInRight" data-wow-delay=".2s">

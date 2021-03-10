@@ -16,7 +16,7 @@ class TypeController extends Controller
      */
     public function index()
     {
-        $type = Type::latest()->with('category')->paginate(20);
+        $type = Type::latest()->with('category')->paginate(6);
         // dd($type);
         $allTypes = Type::with('category')->get();
         return response()->json(['type'=>$type,'alltype'=>$allTypes]);
@@ -60,9 +60,11 @@ class TypeController extends Controller
      * @return \Illuminate\Http\Response
      */
     
-    public function show($id)
+    public function show($slug)
     {
-        //
+        $typelfilter = Type::where('slug','=',$slug)->with('article')->get();
+        // dd($typelfilter);
+        return response()->json(['typefil'=>$typelfilter]);
     }
 
     /**

@@ -2,7 +2,6 @@
 <div>
     <main-header></main-header>
     <router-view></router-view>
-    <home-page></home-page>
     <main-footer></main-footer>
 </div>
 

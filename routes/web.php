@@ -15,6 +15,7 @@ use Illuminate\Support\Facades\Route;
 Route::get('/adminpage', function () {
     return view('admin.home');
 });
+Route::post('sendmail','App\Http\Controllers\MailCustomerSendController@send');
 Route::get('/{any}', function () {
     return view('home');
 })->where('any', '.*');

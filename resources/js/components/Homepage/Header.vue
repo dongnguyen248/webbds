@@ -19,17 +19,17 @@
     <div class="collapse navbar-collapse mx-auto" id="navbarSupportedContent" v-for="category in categories" :key="category.id">
         <ul class="navbar-nav mr-auto" v-if="category.type.length >0">
             <li class="nav-item dropdown">
-                <router-link class="nav-link dropdown-toggle" :to="slug(category)" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <a    class="nav-link dropdown-toggle" href="#"  id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                     {{category.name}}
-                </router-link>
+                </a>
                 <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                    <a class="dropdown-item" v-for="t in category.type" :key="t.id"  :href="slug(t)">{{t.name}}</a>
+                    <a class="dropdown-item" v-for="t in category.type" :key="t.id"  :href="'/type-filter/' + t.slug">{{t.name}}</a>
                 </div>
             </li>
        </ul>
         <ul class="navbar-nav mr-auto" v-else>
             <li class="nav-item dropdown">
-                <a class="nav-link" :href="slug(category)"  role="button"  aria-haspopup="true" aria-expanded="false">
+                <a class="nav-link" href="#"  role="button"  aria-haspopup="true" aria-expanded="false">
                     {{category.name}}
                 </a>
             </li>
@@ -52,11 +52,7 @@ export default {
                 this.categories = response.data.allcategories;
             })
         },
-        slug(item){
-        //    console.log(item.slug);
-        //    console.log(this.location);
-           return '/'+item.slug;
-        }
+       
     },
     mounted() {
         this.getCategories();
