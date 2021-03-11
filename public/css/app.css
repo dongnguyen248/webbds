@@ -47615,6 +47615,11 @@ readers do not read off random characters that represent icons */
   font-weight: 400;
 }
 
+.projectbds .pic_project > a > img {
+  width: 100% !important;
+  height: 245px !important;
+}
+
 .title_main {
   margin-bottom: 35px;
   text-align: center;
@@ -47635,4 +47640,147 @@ readers do not read off random characters that represent icons */
   display: block;
   content: "";
   clear: both;
+}
+
+@media (max-width: 1160px) {
+  .col-lg-4 {
+    max-width: 100% !important;
+  }
+
+  .boxSignUp {
+    display: block !important;
+  }
+
+  .media-container-row {
+    display: block !important;
+  }
+
+  .contentSignUp {
+    padding: 0px !important;
+    padding-left: 210px !important;
+  }
+
+  .footer_main {
+    text-align: center;
+  }
+
+  .footer_box {
+    width: 100% !important;
+  }
+
+  .box-ft-visitors {
+    display: none !important;
+  }
+
+  .projectbds {
+    width: 328px !important;
+  }
+}
+@media (max-width: 850px) {
+  .col-lg-4 {
+    max-width: 100% !important;
+  }
+
+  .boxSignUp {
+    display: block !important;
+  }
+
+  .media-container-row {
+    display: block !important;
+  }
+
+  .contentSignUp {
+    padding: 0px !important;
+    padding-left: 110px !important;
+  }
+
+  .footer_main {
+    text-align: center;
+  }
+
+  .footer_box {
+    width: 100% !important;
+  }
+
+  .box-ft-visitors {
+    display: none !important;
+  }
+}
+@media (max-width: 810px) {
+  .col-lg-4 {
+    max-width: 100% !important;
+  }
+
+  .boxSignUp {
+    display: block !important;
+  }
+
+  .contentSignUp {
+    padding: 0px !important;
+    padding-left: 90px !important;
+  }
+
+  .footer_main {
+    text-align: center;
+  }
+
+  .footer_box {
+    width: 100% !important;
+  }
+
+  .box-ft-visitors {
+    display: none !important;
+  }
+}
+@media (max-width: 640px) {
+  .col-lg-4 {
+    max-width: 100% !important;
+  }
+
+  .boxSignUp {
+    display: block !important;
+  }
+
+  .contentSignUp {
+    padding: 0px !important;
+    padding-left: 70px !important;
+  }
+
+  .footer_main {
+    text-align: center;
+  }
+
+  .footer_box {
+    width: 100% !important;
+  }
+
+  .box-ft-visitors {
+    display: none !important;
+  }
+}
+@media (max-width: 440px) {
+  .col-lg-4 {
+    max-width: 100% !important;
+  }
+
+  .boxSignUp {
+    display: block !important;
+  }
+
+  .contentSignUp {
+    padding: 0px !important;
+    padding-left: 60px !important;
+  }
+
+  .footer_main {
+    text-align: center;
+  }
+
+  .footer_box {
+    width: 100% !important;
+  }
+
+  .footer_box {
+    display: none !important;
+  }
 }

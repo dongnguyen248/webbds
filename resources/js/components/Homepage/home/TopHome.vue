@@ -1,5 +1,5 @@
 <template>
-<div class="contain_main w-clear">
+<div>
     <div class="right w-clear">
         <div class="title_main">
             <span>Dự án nổi bật</span>
@@ -7,12 +7,12 @@
         <div class="content_main align-content w-clear">
             <div class="projectbds" v-for="type in types" :key="type.id">
                 <div class="pic_project">
-                    <a :href="'/type-filter/' + type.slug" >
+                    <a :href="'/type-filter/' + type.slug">
                         <img class="transition" alt="" :src="'/images/types/' + type.photo">
                     </a>
                     <div class="info-project">
-                        <a  :href="'/type-filter/' + type.slug">
-                            {{type.name}} 
+                        <a :href="'/type-filter/' + type.slug">
+                            {{type.name}}
                         </a>
                     </div>
                 </div>
@@ -23,30 +23,35 @@
 
 </div>
 </template>
+
 <script>
 export default {
-    data(){
-        return{
-            types:[]
+    data() {
+        return {
+            types: []
         }
     },
-    methods:{
-        getTypes(){
-            axios.get('api/type').then(response=>{
+    methods: {
+        getTypes() {
+            axios.get('api/type').then(response => {
                 this.types = response.data.alltype;
             })
         },
     },
-    mounted(){
+    mounted() {
         this.getTypes();
     }
 }
 </script>
+
 <style scoped>
-.contain_main {
+.content_main {
     max-width: 1200px;
     margin: 30px auto;
+    display: flex;
+    flex-wrap: wrap;
 }
+
 .title_main {
     margin-bottom: 35px;
     text-align: center;
@@ -69,7 +74,7 @@ export default {
 
 .projectbds {
     width: 350px;
-    float: left;
+
     margin-right: 24px;
     margin-bottom: 30px;
 }
@@ -78,6 +83,7 @@ export default {
     position: relative;
     overflow: hidden;
 }
+
 .pic_project img:hover {
     transform: scale(1.1);
     -o-transform: scale(1.1);
@@ -102,6 +108,7 @@ export default {
     background: linear-gradient(180deg, rgba(0, 0, 0, 0), rgba(0, 0, 0, .9));
     text-align: left;
 }
+
 .info-project a {
     font-family: 'Tahoma';
     font-size: 18px;
@@ -113,6 +120,7 @@ export default {
     -o-transition: all 0.5s;
     -webkit-transition: all 0.5s;
 }
+
 .info-project a:hover {
     color: yellow;
 }
@@ -131,10 +139,10 @@ export default {
     background: #303339;
 }
 
-
-.right{
+.right {
     width: 100%;
 }
+
 .more-button-box a:hover {
     background: #c72528;
 }

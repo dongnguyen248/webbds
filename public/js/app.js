@@ -3564,8 +3564,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   data: function data() {
     return {
@@ -3576,7 +3574,7 @@ __webpack_require__.r(__webpack_exports__);
     getCategories: function getCategories() {
       var _this = this;
 
-      axios.get('api/category').then(function (response) {
+      axios.get('https://www.vinhomesmiennam.net/api/category').then(function (response) {
         _this.categories = response.data.allcategories;
       });
     }
@@ -3882,6 +3880,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   data: function data() {
     return {
@@ -3987,7 +3986,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   data: function data() {
     return {
-      type: []
+      type: [],
+      categories: []
     };
   },
   methods: {
@@ -9055,7 +9055,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "\n.dropdown:hover>.dropdown-menu[data-v-135fc55a] {\n  display: block;\n}\nsection[data-v-135fc55a] {\n    background-position: 50% 50%;\n    background-repeat: no-repeat;\n    background-size: cover;\n}\n.cid-qv1frvgcz3 .navbar[data-v-135fc55a] {\n    padding: .5rem 0;\n    background: #f1f1f1;\n    transition: none;\n    min-height: 77px;\n}\n.bg-light[data-v-135fc55a] {\n    opacity: 0.7;\n}\n.navbar-light .navbar-nav .nav-link[data-v-135fc55a] {\n    color: #111 !important;\n}\n\n/* .container-sm{\n  display: none ;\n} */\n", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, "\n.dropdown:hover>.dropdown-menu[data-v-135fc55a] {\n    display: block;\n}\nsection[data-v-135fc55a] {\n    background-position: 50% 50%;\n    background-repeat: no-repeat;\n    background-size: cover;\n}\n.cid-qv1frvgcz3 .navbar[data-v-135fc55a] {\n    padding: .5rem 0;\n    background: #f1f1f1;\n    transition: none;\n    min-height: 77px;\n}\n.bg-light[data-v-135fc55a] {\n    opacity: 0.7;\n}\n.navbar-light .navbar-nav .nav-link[data-v-135fc55a] {\n    color: #111 !important;\n}\n\n/* .container-sm{\n  display: none ;\n} */\n", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -9127,7 +9127,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "\n.col-lg-4[data-v-c1fd0fd4] {\n    max-width: 31.333% !important;\n}\n.card-img>img[data-v-c1fd0fd4] {\n    height: 14vw;\n    width: 17vw;\n}\n.card-title[data-v-c1fd0fd4] {\n    float: none;\n    font-size: 2.1rem;\n}\n.media-container-row[data-v-c1fd0fd4] {\n    display: flex;\n    flex-direction: row;\n    flex-wrap: wrap;\n    justify-content: center;\n    align-content: center;\n    align-items: start;\n}\n", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, "\n.col-lg-4[data-v-c1fd0fd4] {\n    max-width: 31.333% ;\n}\n.contain_main[data-v-c1fd0fd4] {\n    max-width: 1200px;\n    margin: 30px auto;\n}\n.card-title[data-v-c1fd0fd4] {\n    float: none;\n    font-size: 2.1rem;\n}\n.media-container-row[data-v-c1fd0fd4] {\n    display: flex;\n    flex-direction: row;\n    flex-wrap: wrap;\n    justify-content: center;\n    align-content: center;\n    align-items: start;\n}\n", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -9175,7 +9175,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "\n.contain_main[data-v-7836db2a] {\n    max-width: 1200px;\n    margin: 30px auto;\n}\n.title_main[data-v-7836db2a] {\n    margin-bottom: 35px;\n    text-align: center;\n    padding-bottom: 25px;\n    background: url(/images/bg-title-main.png) no-repeat bottom center;\n}\n.title_main span[data-v-7836db2a] {\n    font-size: 28px;\n    color: #ff0000;\n    font-weight: normal;\n    text-transform: uppercase;\n    font-family: Tahoma;\n    font-weight: bold;\n}\n.projectbds[data-v-7836db2a]:nth-of-type(3n+1) {\n    clear: both;\n}\n.projectbds[data-v-7836db2a] {\n    width: 350px;\n    float: left;\n    margin-right: 24px;\n    margin-bottom: 30px;\n}\n.pic_project[data-v-7836db2a] {\n    position: relative;\n    overflow: hidden;\n}\n.pic_project img[data-v-7836db2a]:hover {\n    transform: scale(1.1);\n    -o-transform: scale(1.1);\n    -webkit-transform: scale(1.1);\n    -moz-transform: scale(1.1);\n}\n.transition[data-v-7836db2a] {\n    transition: all 0.5s;\n}\n.info-project[data-v-7836db2a] {\n    position: absolute;\n    bottom: 0px;\n    left: 0px;\n    width: 100%;\n    padding: 7px 5px;\n    background: linear-gradient(180deg, rgba(0, 0, 0, 0), rgba(0, 0, 0, .9));\n    text-align: left;\n}\n.info-project a[data-v-7836db2a] {\n    font-family: 'Tahoma';\n    font-size: 18px;\n    color: #fff;\n    font-weight: bold;\n    line-height: 21px;\n    width: 100%;\n    transition: all 0.5s;\n    -o-transition: all 0.5s;\n    -webkit-transition: all 0.5s;\n}\n.info-project a[data-v-7836db2a]:hover {\n    color: yellow;\n}\n.more-button-box[data-v-7836db2a] {\n    text-align: center;\n    margin: 20px 0px 20px 0px;\n}\n.more-button-box a[data-v-7836db2a] {\n    display: inline-block;\n    padding: 8px 30px 10px 30px;\n    color: #fff;\n    font-size: 17px;\n    font-family: 'Tahoma';\n    background: #303339;\n}\n.right[data-v-7836db2a]{\n    width: 100%;\n}\n.more-button-box a[data-v-7836db2a]:hover {\n    background: #c72528;\n}\n", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, "\n.content_main[data-v-7836db2a] {\n    max-width: 1200px;\n    margin: 30px auto;\n    display: flex;\n    flex-wrap: wrap;\n}\n.title_main[data-v-7836db2a] {\n    margin-bottom: 35px;\n    text-align: center;\n    padding-bottom: 25px;\n    background: url(/images/bg-title-main.png) no-repeat bottom center;\n}\n.title_main span[data-v-7836db2a] {\n    font-size: 28px;\n    color: #ff0000;\n    font-weight: normal;\n    text-transform: uppercase;\n    font-family: Tahoma;\n    font-weight: bold;\n}\n.projectbds[data-v-7836db2a]:nth-of-type(3n+1) {\n    clear: both;\n}\n.projectbds[data-v-7836db2a] {\n    width: 350px;\n\n    margin-right: 24px;\n    margin-bottom: 30px;\n}\n.pic_project[data-v-7836db2a] {\n    position: relative;\n    overflow: hidden;\n}\n.pic_project img[data-v-7836db2a]:hover {\n    transform: scale(1.1);\n    -o-transform: scale(1.1);\n    -webkit-transform: scale(1.1);\n    -moz-transform: scale(1.1);\n}\n.transition[data-v-7836db2a] {\n    transition: all 0.5s;\n}\n.info-project[data-v-7836db2a] {\n    position: absolute;\n    bottom: 0px;\n    left: 0px;\n    width: 100%;\n    padding: 7px 5px;\n    background: linear-gradient(180deg, rgba(0, 0, 0, 0), rgba(0, 0, 0, .9));\n    text-align: left;\n}\n.info-project a[data-v-7836db2a] {\n    font-family: 'Tahoma';\n    font-size: 18px;\n    color: #fff;\n    font-weight: bold;\n    line-height: 21px;\n    width: 100%;\n    transition: all 0.5s;\n    -o-transition: all 0.5s;\n    -webkit-transition: all 0.5s;\n}\n.info-project a[data-v-7836db2a]:hover {\n    color: yellow;\n}\n.more-button-box[data-v-7836db2a] {\n    text-align: center;\n    margin: 20px 0px 20px 0px;\n}\n.more-button-box a[data-v-7836db2a] {\n    display: inline-block;\n    padding: 8px 30px 10px 30px;\n    color: #fff;\n    font-size: 17px;\n    font-family: 'Tahoma';\n    background: #303339;\n}\n.right[data-v-7836db2a] {\n    width: 100%;\n}\n.more-button-box a[data-v-7836db2a]:hover {\n    background: #c72528;\n}\n", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -9199,7 +9199,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "\n.col-lg-4[data-v-66b4916c] {\n    max-width: 31.333% !important;\n}\n.card-img>img[data-v-66b4916c] {\n    height: 14vw;\n    width: 17vw;\n}\n.card-title[data-v-66b4916c]{\n    float: none;\n    font-size: 2.1rem;\n}\n", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, "\n.content_main[data-v-66b4916c] {\n    max-width: 1200px;\n    margin: 30px auto;\n    display: flex;\n    flex-wrap: wrap;\n}\n.card-title[data-v-66b4916c]{\n    float: none;\n    font-size: 2.1rem;\n}\n", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -48536,23 +48536,23 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("ul", { staticClass: "navbar-nav mr-auto" }, [
-      _c("li", { staticClass: "nav-item dropdown" }, [
-        _c(
-          "a",
-          {
-            staticClass: "nav-link",
-            attrs: {
-              href: "/lien-he",
-              role: "button",
-              "aria-haspopup": "true",
-              "aria-expanded": "false"
-            }
-          },
-          [_vm._v("\n                    LIÊN HỆ\n                ")]
-        )
-      ])
-    ])
+    return _c(
+      "div",
+      {
+        staticClass: "collapse navbar-collapse mx-auto",
+        attrs: { id: "navbarSupportedContent" }
+      },
+      [
+        _c("ul", { staticClass: "navbar-nav mr-auto" }, [
+          _c("li", { staticClass: "nav-item active" }, [
+            _c("a", { staticClass: "nav-link", attrs: { href: "/lien-he" } }, [
+              _vm._v("LIÊN HỆ "),
+              _c("span", { staticClass: "sr-only" }, [_vm._v("(current)")])
+            ])
+          ])
+        ])
+      ]
+    )
   }
 ]
 render._withStripped = true
@@ -49037,7 +49037,7 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", [
+  return _c("div", { staticClass: "content_main align-content" }, [
     _vm._m(0),
     _vm._v(" "),
     _c(
@@ -49054,6 +49054,7 @@ var render = function() {
             _c("div", { staticClass: "card-wrapper" }, [
               _c("div", { staticClass: "card-img" }, [
                 _c("img", {
+                  staticClass: "img-thumbnail",
                   attrs: {
                     src: "/images/article/" + article.photo,
                     alt: "Mobirise",
@@ -49173,7 +49174,7 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", { staticClass: "contain_main w-clear" }, [
+  return _c("div", [
     _c("div", { staticClass: "right w-clear" }, [
       _vm._m(0),
       _vm._v(" "),
@@ -49196,7 +49197,7 @@ var render = function() {
                     _vm._v(
                       "\n                            " +
                         _vm._s(type.name) +
-                        " \n                        "
+                        "\n                        "
                     )
                   ])
                 ])

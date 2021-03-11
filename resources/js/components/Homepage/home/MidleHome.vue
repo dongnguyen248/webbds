@@ -1,5 +1,5 @@
 <template>
-<div>
+<div class="content_main align-content">
     <div class="title_main">
         <span>CÁC BÀI PHÂN TÍCH NỔI BẬT</span>
     </div>
@@ -8,7 +8,7 @@
         <div class="card p-3 col-12 col-md-6 col-lg-4 mr-3" v-for="article in articles" :key="article.id">
             <div class="card-wrapper">
                 <div class="card-img">
-                    <img :src="'/images/article/' + article.photo" alt="Mobirise" media-simple="true">
+                    <img :src="'/images/article/' + article.photo" alt="Mobirise" media-simple="true" class="img-thumbnail">
                 </div>
                 <div class="card-box">
                     <h4 class="card-title  display-7">
@@ -52,14 +52,14 @@ export default {
 
 <style scoped>
 .col-lg-4 {
-    max-width: 31.333% !important;
+    max-width: 31.333% ;
 
 }
-
-.card-img>img {
-    height: 14vw;
-    width: 17vw;
+.contain_main {
+    max-width: 1200px;
+    margin: 30px auto;
 }
+
 
 .card-title {
     float: none;

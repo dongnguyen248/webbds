@@ -33,6 +33,7 @@ export default {
     data(){
         return{
             type:[],
+            categories:[]
         }
     },
     methods:{
@@ -41,7 +42,8 @@ export default {
                 this.type = data.typefil[0];
                 console.log(data.typefil[0].name);
             })
-        }
+        },
+       
     },
     mounted(){
         this.getTypeFillter();
@@ -49,15 +51,13 @@ export default {
 }
 </script>
 <style  scoped>
-.col-lg-4 {
-    max-width: 31.333% !important;
-
+.content_main {
+    max-width: 1200px;
+    margin: 30px auto;
+    display: flex;
+    flex-wrap: wrap;
 }
 
-.card-img>img {
-    height: 14vw;
-    width: 17vw;
-}
 .card-title{
     float: none;
     font-size: 2.1rem;

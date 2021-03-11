@@ -10,57 +10,55 @@
         Menu
     </button>
     <div class="collapse navbar-collapse mx-auto" id="navbarSupportedContent">
-        <ul class="navbar-nav mr-auto" >
-          <li class="nav-item active">
+        <ul class="navbar-nav mr-auto">
+            <li class="nav-item active">
                 <a class="nav-link" href="/">TRANG CHỦ <span class="sr-only">(current)</span></a>
-            </li> 
+            </li>
         </ul>
     </div>
     <div class="collapse navbar-collapse mx-auto" id="navbarSupportedContent" v-for="category in categories" :key="category.id">
         <ul class="navbar-nav mr-auto" v-if="category.type.length >0">
             <li class="nav-item dropdown">
-                <a    class="nav-link dropdown-toggle" href="#"  id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                     {{category.name}}
                 </a>
                 <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                    <a class="dropdown-item" v-for="t in category.type" :key="t.id"  :href="'/type-filter/' + t.slug">{{t.name}}</a>
+                    <a class="dropdown-item" v-for="t in category.type" :key="t.id" :href="'/type-filter/' + t.slug">{{t.name}}</a>
                 </div>
             </li>
-       </ul>
+        </ul>
         <ul class="navbar-nav mr-auto" v-else>
             <li class="nav-item dropdown">
-                <a class="nav-link" href="#"  role="button"  aria-haspopup="true" aria-expanded="false">
+                <a class="nav-link" href="#" role="button" aria-haspopup="true" aria-expanded="false">
                     {{category.name}}
                 </a>
             </li>
         </ul>
-       
-
     </div>
-     <ul class="navbar-nav mr-auto">
-            <li class="nav-item dropdown">
-                <a class="nav-link" href="/lien-he"  role="button"  aria-haspopup="true" aria-expanded="false">
-                    LIÊN HỆ
-                </a>
-            </li>
-        </ul>
+     <div class="collapse navbar-collapse mx-auto" id="navbarSupportedContent">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item active">
+                    <a class="nav-link" href="/lien-he">LIÊN HỆ <span class="sr-only">(current)</span></a>
+                </li>
+            </ul>
+        </div>
 </nav>
 </template>
 
 <script>
 export default {
-    data(){
-        return{
-            categories:[],
+    data() {
+        return {
+            categories: [],
         }
     },
     methods: {
         getCategories() {
-            axios.get('api/category').then(response=>{
+            axios.get('https://www.vinhomesmiennam.net/api/category').then(response => {
                 this.categories = response.data.allcategories;
             })
         },
-       
+
     },
     mounted() {
         this.getCategories();
@@ -70,8 +68,9 @@ export default {
 
 <style scoped>
 .dropdown:hover>.dropdown-menu {
-  display: block;
+    display: block;
 }
+
 section {
     background-position: 50% 50%;
     background-repeat: no-repeat;
