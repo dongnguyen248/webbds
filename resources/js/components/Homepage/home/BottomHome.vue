@@ -10,7 +10,7 @@
                 </div>
             </div>
             <div class="contentSignUp">
-                <form method="post" name="nhanemail" id="nhanemail" @submit="sendMail()">
+                <form @submit="sendMail()">
                     <div class="dangkynt">
                         <div class="tit-dk w-clear">
                             <input type="text" v-model="form.name" placeholder="Họ tên">
@@ -25,7 +25,6 @@
                             <input type="submit" class="sentdk" value="Gửi">
                         </div>
                     </div>
-                    <input type="hidden" name="command">
                     <div class="clear"></div>
                 </form>
             </div>
@@ -52,7 +51,7 @@ export default {
             formData.set("name", this.name);
             formData.set("email", this.form.email);
             formData.set("phone", this.form.phone);
-            axios.post('sendmail', formData).then(response => {
+            axios.post('/api/sendmail', formData).then(response => {
                 this.customer.name = ''
                 this.customer.email = ''
                 this.customer.message = ''

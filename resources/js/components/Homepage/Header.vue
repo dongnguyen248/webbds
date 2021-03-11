@@ -34,8 +34,16 @@
                 </a>
             </li>
         </ul>
+       
 
     </div>
+     <ul class="navbar-nav mr-auto">
+            <li class="nav-item dropdown">
+                <a class="nav-link" href="/lien-he"  role="button"  aria-haspopup="true" aria-expanded="false">
+                    LIÊN HỆ
+                </a>
+            </li>
+        </ul>
 </nav>
 </template>
 

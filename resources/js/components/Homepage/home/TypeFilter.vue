@@ -49,6 +49,15 @@ export default {
 }
 </script>
 <style  scoped>
+.col-lg-4 {
+    max-width: 31.333% !important;
+
+}
+
+.card-img>img {
+    height: 14vw;
+    width: 17vw;
+}
 .card-title{
     float: none;
     font-size: 2.1rem;

@@ -25,5 +25,7 @@ Route::group(['prefix' => 'auth'], function ($router) {
     Route::resource('category', 'App\Http\Controllers\CategoryController');
     Route::resource('type', 'App\Http\Controllers\TypeController');
     Route::resource('article', 'App\Http\Controllers\ArticelController');
-    Route::post('article/{id}','App\Http\Controllers\ArticelController@update');
+    // Route::post('article/{id}','App\Http\Controllers\ArticelController@update');
+    Route::post('sendmail','App\Http\Controllers\MailCustomerSendController@send');
+
     // Route::get('category', 'App\Http\Controllers\CategoryController@index');

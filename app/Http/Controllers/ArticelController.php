@@ -60,11 +60,13 @@ class ArticelController extends Controller
     public function store(Request $request)
     {
         //
+        // dd($request);
         $this->validate($request,[
             'title' => 'required|string',
             'content' => 'required|string',
         ]);
-        $user_id = auth('api')->user()->id;
+        //  dd(auth('api')->user());
+         $user_id = auth('api')->user()->id;
         $fileName = '';
         if($request->file('image')){
             $fileName = $request->file('image')->store('','public');

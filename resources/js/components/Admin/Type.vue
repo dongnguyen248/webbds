@@ -178,6 +178,11 @@ export default {
             });
             this.$Progress.finish();
         },
+        getCategories() {
+            axios.get('api/category').then(response=>{
+                this.Categories = response.data.allcategories;
+            })
+        },
         getProductTypePage(page) {
             axios.get("api/type?page=" + page).then(({
                 data
@@ -231,6 +236,8 @@ export default {
     },
     mounted() {
         this.getProductType();
+        this.getCategories();
+
     }
 };
 </script>

@@ -6,17 +6,17 @@ import Article from "./components/Admin/Article.vue";
 import Contact from "./components/Homepage/home/Lienhe.vue"
 import ArticleDetail from "./components/Homepage/home/DetailArticle.vue";
 import TypeFilter from "./components/Homepage/home/TypeFilter.vue";
+// import CategoryFilter from "./components/Homepage/home/CategoryFilter.vue"
 const routes = [{
         path: "/",
-        props: true,
         component: Home,
     },
     {
         path: '/lien-he',
         component: Contact,
-        props: true,
         name: 'contact'
     },
+
     {
         path: "/type-filter/:typeTitle",
         component: TypeFilter,
@@ -25,7 +25,6 @@ const routes = [{
     {
         path: "/article-detail/:slug",
         component: ArticleDetail,
-        props: true,
         name: "articledetail"
     },
 
@@ -48,6 +47,7 @@ const routes = [{
         path: "/category",
         meta: {
             requiresAuth: true
+
         },
         component: Category
 

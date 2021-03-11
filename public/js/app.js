@@ -3377,22 +3377,29 @@ __webpack_require__.r(__webpack_exports__);
       });
       this.$Progress.finish();
     },
-    getProductTypePage: function getProductTypePage(page) {
+    getCategories: function getCategories() {
       var _this3 = this;
+
+      axios.get('api/category').then(function (response) {
+        _this3.Categories = response.data.allcategories;
+      });
+    },
+    getProductTypePage: function getProductTypePage(page) {
+      var _this4 = this;
 
       axios.get("api/type?page=" + page).then(function (_ref3) {
         var data = _ref3.data;
-        _this3.Type = data.type.data;
-        _this3.totalPage = data.type.last_page;
+        _this4.Type = data.type.data;
+        _this4.totalPage = data.type.last_page;
       });
     },
     updateProductType: function updateProductType() {
-      var _this4 = this;
+      var _this5 = this;
 
       this.form.put("api/type/" + this.form.id).then(function () {
         $("#productTypeModal").modal("hide");
 
-        _this4.getProductType();
+        _this5.getProductType();
 
         Toast.fire({
           icon: "success",
@@ -3401,7 +3408,7 @@ __webpack_require__.r(__webpack_exports__);
       });
     },
     deleteProductType: function deleteProductType(id) {
-      var _this5 = this;
+      var _this6 = this;
 
       Swal.fire({
         title: "Are you sure?",
@@ -3416,7 +3423,7 @@ __webpack_require__.r(__webpack_exports__);
           axios["delete"]("api/type/" + id).then(function (response) {
             Swal.fire("Deleted!", "Product Type has been deleted.", "success");
 
-            _this5.getProductType();
+            _this6.getProductType();
           })["catch"](function () {
             Swal.fire("Failed!", "There was something wronge.", "warning");
           });
@@ -3426,6 +3433,7 @@ __webpack_require__.r(__webpack_exports__);
   },
   mounted: function mounted() {
     this.getProductType();
+    this.getCategories();
   }
 });
 
@@ -3550,6 +3558,14 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   data: function data() {
     return {
@@ -3619,7 +3635,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   data: function data() {
     return {
@@ -3638,7 +3653,7 @@ __webpack_require__.r(__webpack_exports__);
       formData.set("name", this.name);
       formData.set("email", this.form.email);
       formData.set("phone", this.form.phone);
-      axios.post('sendmail', formData).then(function (response) {
+      axios.post('/api/sendmail', formData).then(function (response) {
         _this.customer.name = '';
         _this.customer.email = '';
         _this.customer.message = '';
@@ -4340,15 +4355,14 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
+ // import CategoryFilter from "./components/Homepage/home/CategoryFilter.vue"
 
 var routes = [{
   path: "/",
-  props: true,
   component: _components_Homepage_home_Trangchu_vue__WEBPACK_IMPORTED_MODULE_0__.default
 }, {
   path: '/lien-he',
   component: _components_Homepage_home_Lienhe_vue__WEBPACK_IMPORTED_MODULE_5__.default,
-  props: true,
   name: 'contact'
 }, {
   path: "/type-filter/:typeTitle",
@@ -4357,7 +4371,6 @@ var routes = [{
 }, {
   path: "/article-detail/:slug",
   component: _components_Homepage_home_DetailArticle_vue__WEBPACK_IMPORTED_MODULE_6__.default,
-  props: true,
   name: "articledetail"
 }, //adminpage 
 {
@@ -9114,7 +9127,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "\n.card-title[data-v-c1fd0fd4] {\n    float: none;\n    font-size: 2.1rem;\n}\n.media-container-row[data-v-c1fd0fd4] {\n    display: flex;\n    flex-direction: row;\n    flex-wrap: wrap;\n    justify-content: center;\n    align-content: center;\n    align-items: start;\n}\n", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, "\n.col-lg-4[data-v-c1fd0fd4] {\n    max-width: 31.333% !important;\n}\n.card-img>img[data-v-c1fd0fd4] {\n    height: 14vw;\n    width: 17vw;\n}\n.card-title[data-v-c1fd0fd4] {\n    float: none;\n    font-size: 2.1rem;\n}\n.media-container-row[data-v-c1fd0fd4] {\n    display: flex;\n    flex-direction: row;\n    flex-wrap: wrap;\n    justify-content: center;\n    align-content: center;\n    align-items: start;\n}\n", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -9186,7 +9199,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "\n.card-title[data-v-66b4916c]{\n    float: none;\n    font-size: 2.1rem;\n}\n", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, "\n.col-lg-4[data-v-66b4916c] {\n    max-width: 31.333% !important;\n}\n.card-img>img[data-v-66b4916c] {\n    height: 14vw;\n    width: 17vw;\n}\n.card-title[data-v-66b4916c]{\n    float: none;\n    font-size: 2.1rem;\n}\n", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -48458,7 +48471,9 @@ var render = function() {
                 ])
           ]
         )
-      })
+      }),
+      _vm._v(" "),
+      _vm._m(2)
     ],
     2
   )
@@ -48516,6 +48531,28 @@ var staticRenderFns = [
         ])
       ]
     )
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("ul", { staticClass: "navbar-nav mr-auto" }, [
+      _c("li", { staticClass: "nav-item dropdown" }, [
+        _c(
+          "a",
+          {
+            staticClass: "nav-link",
+            attrs: {
+              href: "/lien-he",
+              role: "button",
+              "aria-haspopup": "true",
+              "aria-expanded": "false"
+            }
+          },
+          [_vm._v("\n                    LIÊN HỆ\n                ")]
+        )
+      ])
+    ])
   }
 ]
 render._withStripped = true
@@ -48555,7 +48592,6 @@ var render = function() {
             _c(
               "form",
               {
-                attrs: { method: "post", name: "nhanemail", id: "nhanemail" },
                 on: {
                   submit: function($event) {
                     return _vm.sendMail()
@@ -48635,8 +48671,6 @@ var render = function() {
                   _vm._v(" "),
                   _vm._m(1)
                 ]),
-                _vm._v(" "),
-                _c("input", { attrs: { type: "hidden", name: "command" } }),
                 _vm._v(" "),
                 _c("div", { staticClass: "clear" })
               ]
@@ -49012,7 +49046,10 @@ var render = function() {
       _vm._l(_vm.articles, function(article) {
         return _c(
           "div",
-          { key: article.id, staticClass: "card p-3 col-12 col-md-6 col-lg-4" },
+          {
+            key: article.id,
+            staticClass: "card p-3 col-12 col-md-6 col-lg-4 mr-3"
+          },
           [
             _c("div", { staticClass: "card-wrapper" }, [
               _c("div", { staticClass: "card-img" }, [
