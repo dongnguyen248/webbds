@@ -179,13 +179,7 @@ export default {
         category() {
             this.getArticle();
         },
-        // currentPage() {
-        //     this.getArticle();
-        // },
-        // perPage() {
-        //     this.getArticle();
-        //     console.log(this.perPage);
-        // }
+      
     },
     data() {
         return {

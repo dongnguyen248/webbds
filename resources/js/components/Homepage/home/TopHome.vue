@@ -38,7 +38,6 @@ export default {
         getCategories() {
             axios.get('https://www.vinhomesmiennam.net/api/category').then(response => {
                 this.categories = response.data.allcategories;
-                console.log(this.categories);
             })
         },
     },

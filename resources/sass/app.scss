@@ -10,6 +10,11 @@ $fa-font-path: "~@fortawesome/fontawesome-free/webfonts";
 @import "~@fortawesome/fontawesome-free/scss/fontawesome.scss";
 @import "~@fortawesome/fontawesome-free/scss/solid.scss";
 @import "~@fortawesome/fontawesome-free/scss/brands.scss";
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 2px 30px 0 #ced3d6;
+}
+
 .projectbds .pic_project>a>img {
     width: 100% !important;
     height: 245px !important;

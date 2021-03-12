@@ -5,7 +5,6 @@ export function login(credentials) {
         axios
             .post("/api/auth/login", credentials)
             .then(response => {
-                // console.log(response.data);
                 setAuthorization(response.data.access_token);
 
                 res(response.data);
