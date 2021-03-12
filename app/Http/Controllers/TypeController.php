@@ -88,10 +88,24 @@ class TypeController extends Controller
     public function update(Request $request, $id)
     {
         //
-        $request['slug'] = Str::slug($request['name'], '-');
+        $type =  Type::findOrFail($id);
+      if($request->file('image') != null){
+        $type->name= $request['name'];
         $photoName = $request['name'].'.'.$request->file('image')->extension();
-        $request->file('image')->move(public_path('images/types'),$photoName);
-        Type::findOrFail($id)->update($request->all());
+        $type->photo= $photoName;
+        $type->category_id =$request['category_id'];
+        $type->slug = $request['slug'] = Str::slug($request['name'], '-');
+        @unlink(public_path('images/types').$type->photo);
+        $type->save();
+
+      }else{
+        $type->name= $request['name'];
+        $type->category_id =$request['category_id'];
+        $type->slug = $request['slug'] = Str::slug($request['name'], '-');
+        $type->save();
+
+
+      };
     }
 
     /**

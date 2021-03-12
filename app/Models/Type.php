@@ -13,10 +13,10 @@ class Type extends Model
     ];
     public function category(){
 
-        return $this->belongsTo(Category::class);
+        return $this->belongsTo(Category::class,'category_id','id');
     }
     public function article()
     {
-        return $this->hasMany(Articel::class);
+        return $this->hasMany(Articel::class,'id','type_id');
     }
 }

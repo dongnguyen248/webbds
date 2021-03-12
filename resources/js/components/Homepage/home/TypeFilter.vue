@@ -8,7 +8,7 @@
         <div class="card p-3 col-12 col-md-6 col-lg-4">
             <div class="card-wrapper">
                 <div class="card-img">
-                    <img :src="'/images/article/' + art.photo" alt="Mobirise" media-simple="true">
+                    <img class="img-thumbnail" :src="'/images/article/' + art.photo" alt="Mobirise" media-simple="true">
                 </div>
                 <div class="card-box">
                     <h2 class="card-title display-7 mt-3">

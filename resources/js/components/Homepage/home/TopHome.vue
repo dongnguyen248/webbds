@@ -1,24 +1,27 @@
 <template>
 <div>
-    <div class="right w-clear">
-        <div class="title_main">
-            <span>Dự án nổi bật</span>
-        </div>
-        <div class="content_main align-content w-clear">
-            <div class="projectbds" v-for="type in types" :key="type.id">
-                <div class="pic_project">
-                    <a :href="'/type-filter/' + type.slug">
-                        <img class="transition" alt="" :src="'/images/types/' + type.photo">
-                    </a>
-                    <div class="info-project">
-                        <a :href="'/type-filter/' + type.slug">
-                            {{type.name}}
+    <div class="right w-clear" v-for="category in categories" :key="category.id">
+        <div v-if="category.type.length >0">
+            <div class="title_main">
+                <span>{{category.name}}</span>
+            </div>
+            <div class="content_main align-content w-clear">
+                <div class="projectbds" v-for="t in category.type" :key="t.id">
+                    <div class="pic_project">
+                        <a :href="'/type-filter/' + t.slug">
+                            <img class="transition" alt="" :src="'/images/types/' + t.photo">
                         </a>
+                        <div class="info-project">
+                            <a :href="'/type-filter/' + t.slug">
+                                {{t.name}}
+                            </a>
+                        </div>
                     </div>
                 </div>
+                <div class="clear"></div>
             </div>
-            <div class="clear"></div>
         </div>
+
     </div>
 
 </div>
@@ -28,18 +31,19 @@
 export default {
     data() {
         return {
-            types: []
+            categories: []
         }
     },
     methods: {
-        getTypes() {
-            axios.get('api/type').then(response => {
-                this.types = response.data.alltype;
+        getCategories() {
+            axios.get('https://www.vinhomesmiennam.net/api/category').then(response => {
+                this.categories = response.data.allcategories;
+                console.log(this.categories);
             })
         },
     },
     mounted() {
-        this.getTypes();
+        this.getCategories();
     }
 }
 </script>
