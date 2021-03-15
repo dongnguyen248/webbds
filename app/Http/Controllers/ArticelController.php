@@ -123,23 +123,41 @@ class ArticelController extends Controller
         ]);
         $article = Articel::findOrFail($id);
         $fileName = $article->photo;
-        if($request->file('image') && $fileName!= $request->photo){
+       
+        
+        if($request->file('image') != null){
             $fileName = $request->file('image')->store('','public');
             $request->file('image')->move(public_path('images/article/'),$fileName);
-        }
-        if($fileName != $article->photo){
             @unlink(public_path('images/article/').$article->photo);
+            if($article->title != $request['title']){
+                $article['title']=$request['title'];
+                $article['content']= $request['content'] ;
+                $article['type_id']= $request['type_id'];
+                $article['photo']= $fileName;
+                $article->slug = Str::slug($request['title'], '-') .'-'. now()->timestamp;
+                $article->save();
+
+            }else{
+                $article['title']=$request['title'];
+                $article['content']= $request['content'] ;
+                $article['type_id']= $request['type_id'];
+                $article->save();
+            }
+        }else{
+            if($article->title != $request['title']){
+                $article->slug = Str::slug($request['title'], '-') .'-'. now()->timestamp;
+                $article['title']=$request['title'];
+                $article['content']= $request['content'] ;
+                $article['type_id']= $request['type_id'];
+                $article->save();
+
+            }else{
+                $article['title']=$request['title'];
+                $article['content']= $request['content'] ;
+                $article['type_id']= $request['type_id'];
+                $article->save();
+            }
         }
-
-        if($article->title != $request['title']) // if change title, update slug
-            $article->slug = Str::slug($request['title'], '-') .'-'. now()->timestamp;
-
-        $article['title']=$request['title'];
-        $article['content']= $request['content'] ;
-        $article['type_id']= $request['type_id'];
-        $article['photo']= $fileName;
-        
-        $article->save();
         return ['message' => 'Updated success Article'];
     }
 

@@ -44,7 +44,7 @@ export default {
     },
     methods: {
         getTypeFillter() {
-            axios.get('../api/type/' + this.$route.params.typeTitle).then(({
+            axios.get('https://www.vinhomesmiennam.net/../api/type/' + this.$route.params.typeTitle).then(({
                 data
             }) => {
                 this.type = data.typefil[0];

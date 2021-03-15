@@ -10,16 +10,16 @@
                 </div>
             </div>
             <div class="contentSignUp">
-                <form @submit="sendMail()">
+                <form @submit.prevent="sendMail()">
                     <div class="dangkynt">
                         <div class="tit-dk w-clear">
-                            <input type="text" v-model="form.name" placeholder="Họ tên">
+                            <input type="text" v-model="form.name" placeholder="Họ tên" required>
                         </div>
                         <div class="tit-dk w-clear">
-                            <input type="text" v-model="form.email" placeholder="Email">
+                            <input type="text" v-model="form.email" placeholder="Email" required>
                         </div>
                         <div class="tit-dk w-clear">
-                            <input type="text" v-model="form.phone" placeholder="Điện thoại">
+                            <input type="text" v-model="form.phone" placeholder="Điện thoại" required>
                         </div>
                         <div class="btnsent">
                             <input type="submit" class="sentdk" value="Gửi">
@@ -41,7 +41,7 @@ export default {
             form: new Form({
                 name: "",
                 email: "",
-                phone: " "
+                phone: ""
             })
         }
     },
@@ -51,10 +51,14 @@ export default {
             formData.set("name", this.name);
             formData.set("email", this.form.email);
             formData.set("phone", this.form.phone);
-            axios.post('/api/sendmail', formData).then(response => {
-                this.customer.name = ''
-                this.customer.email = ''
-                this.customer.message = ''
+            axios.post('/sendemail/send', formData).then(response => {
+                this.form.name = '',
+                this.form.email = '',
+                this.form.phone = ''
+                Toast.fire({
+                        icon: "success",
+                        title: "Thanks for contacting us!"
+                    });
             })
 
         },

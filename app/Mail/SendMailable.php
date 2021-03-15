@@ -10,6 +10,8 @@ use Illuminate\Queue\SerializesModels;
 class SendMailable extends Mailable
 {
     use Queueable, SerializesModels;
+    public $data;
+
 
     /**
      * Create a new message instance.
@@ -29,7 +31,7 @@ class SendMailable extends Mailable
      */
     public function build()
     {
-        return $this->from('nguyendacname.bds@gmail.com')->subject('New Customer Equiry')->view('dynamic_email_template')->with('data', $this->data);
-        // return $this->view('view.name');
+        return $this->from('dongnguyen.test.dn@gmail.com')->subject('New Customer Equiry')->view('dynamic_email_template')->with('data', $this->data);
+       
     }
 }

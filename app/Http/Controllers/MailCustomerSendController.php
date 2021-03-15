@@ -9,22 +9,22 @@ use App\Mail\SendMailable;
 
 class MailCustomerSendController extends Controller
 {
-    public function send(Request $request)
+
+    function send(Request $request)
     {
-        MailCustomerSend::create([
-            'name' => $request['name'],
-            'email' => $request['email'],
-            'phone' => $request['phone']
-        ]);
+     $this->validate($request, [
+      'name'     =>  'required',
+      'email'  =>  'required|email',
+     ]);
+
         $data = array(
-            'name' => $request['name'],
-            'email' => $request['email'],
-            'phone' => $request['phone']
-
-
+            'name'      =>  $request['name'],
+            'email'     =>   $request['email'],
+            'phone'     =>   $request['phone']
         );
 
-        Mail::to('nguyendacname.bds@gmail.com')->send(new SendMailable($data));
-        return back()->with('success', 'Thanks for contacting us!');
+     Mail::to('nguyendacnam.bds@gmail.com')->send(new SendMailable($data));
+     return back()->with('success', 'Thanks for contacting us!');
+
     }
 }

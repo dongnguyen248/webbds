@@ -17,7 +17,6 @@ class TypeController extends Controller
     public function index()
     {
         $type = Type::latest()->with('category')->paginate(6);
-        // dd($type);
         $allTypes = Type::with('category')->get();
         return response()->json(['type'=>$type,'alltype'=>$allTypes]);
     }

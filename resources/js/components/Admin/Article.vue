@@ -116,27 +116,7 @@
                                 </option>
                             </select>
                         </div>
-                        <!-- <div class="form-group">
-                                <label for="type" class="col-form-label"
-                                    >Author:</label
-                                >
-                                <select
-                                    v-model="form.user_id"
-                                    name="author"
-                                    class="form-control"
-                                >
-                                    <option value="none" selected
-                                        >Select author</option
-                                    >
-                                    <option
-                                        v-for="author in authors"
-                                        :key="author.id"
-                                        :value="author.id"
-                                    >
-                                        {{ author.name }}
-                                    </option>
-                                </select>
-                            </div> -->
+                       
                         <div class="form-group row">
                             <label for="photo" class="col-form-label">Photo</label>
                             <div class="input-group col-sm-10">
@@ -149,7 +129,7 @@
                         <p class="note" v-if="sizeFile / 1048576 >= 2">
                             Vui lòng chọn hình nhỏ hơn 2MB
                         </p>
-                        <editor v-model="form.content" name="content" id="content" class="form-control" placeholder="Content" api-key="6nmno2qwavcv4ufsn0k9xv1bi5q5yoxud5o4thqcsruezhx4" :init="myInit" />
+                        <editor v-model="form.content" name="content" id="content" class="form-control" placeholder="Content" api-key="tubrhc5mhlkdqr8vwr377vr2ft3v64blpxbplqmdg94aiktr" :init="myInit" />
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-dismiss="modal">
@@ -188,6 +168,7 @@ export default {
                 title: "",
                 content: " ",
                 type_id: '',
+                image: "",
                 photo: ""
             }),
             articles: [],
@@ -293,11 +274,11 @@ export default {
                 });
             this.$Progress.finish();
         },
-        getCategory() {
-            axios.get("/api/type").then(({
+        getTypes() {
+            axios.get("https://www.vinhomesmiennam.net/api/type").then(({
                 data
             }) => {
-                this.types = data.type.data;
+                this.types = data.alltype;
             });
         },
         chooseFile(event) {
@@ -323,13 +304,7 @@ export default {
             });
         },
         updateArticle() {
-            const formData = new FormData();
-            formData.set("image", this.image);
-            formData.set("title", this.form.title);
-            formData.set("content", this.form.content);
-            formData.set("type_id", this.form.type_id);
-            axios
-                .post("/api/article/" + this.form.id, formData)
+            this.form.put("/api/article/" + this.form.id)
                 .then(() => {
                     $("#articleModal").modal("hide");
                     this.image = "";
@@ -374,7 +349,7 @@ export default {
     },
     mounted() {
         this.getArticle();
-        this.getCategory();
+        this.getTypes();
     }
 };
 </script>

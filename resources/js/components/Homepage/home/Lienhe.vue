@@ -1,81 +1,110 @@
 <template>
 <section class="Material-contact-section section-padding section-dark mt-5">
-      <div class="container">
-          <div class="row">
-              <!-- Section Titile -->
-              <div class="col-md-12 wow animated fadeInLeft" data-wow-delay=".2s">
-                  <h1 class="section-title">PHÒNG KINH DOANH VINHOMES</h1>
-              </div>
-          </div>
-          <div class="row">
-              <!-- Section Titile -->
-              <div class="col-md-6 mt-3 contact-widget-section2 wow animated fadeInLeft" data-wow-delay=".2s">
+    <div class="container">
+        <div class="row">
+            <!-- Section Titile -->
+            <div class="col-md-12 wow animated fadeInLeft" data-wow-delay=".2s">
+                <h1 class="section-title">PHÒNG KINH DOANH VINHOMES</h1>
+            </div>
+        </div>
+        <div class="row">
+            <!-- Section Titile -->
+            <div class="col-md-6 mt-3 contact-widget-section2 wow animated fadeInLeft" data-wow-delay=".2s">
                 <p>Lưu ý: Quý khách hàng vui lòng liên hệ đăng ký trước khi xem nhà mẫu, để được chúng tôi hỗ trợ tốt nhất.</p>
 
                 <div class="find-widget">
-                 Công ty:  <a href="https://www.vinhomesmiennam.net">Vinhomes</a>
+                    Công ty: <a href="https://www.vinhomesmiennam.net">Vinhomes</a>
                 </div>
                 <div class="find-widget">
-                 Địa chỉ: <a href="https://www.vinhomesmiennam.net">Tầng 3, TTTM Vincom Megamall, 159 Xa Lộ Hà Nội, Phường Thảo Điền Q2, TP.HCM</a>
+                    Địa chỉ: <a href="https://www.vinhomesmiennam.net">Tầng 3, TTTM Vincom Megamall, 159 Xa Lộ Hà Nội, Phường Thảo Điền Q2, TP.HCM</a>
                 </div>
                 <div class="find-widget">
-                  Hotline:  <a href="#"> 0949.535.078</a>
+                    Hotline: <a href="#"> 0949.535.078</a>
                 </div>
-                
-                <div class="find-widget">
-                  Website:  <a href="https://www.vinhomesmiennam.net">www.vinhomesmiennam.net</a>
-                </div>
-               
-              </div>
-              <!-- contact form -->
-              <div class="col-md-6 wow animated fadeInRight" data-wow-delay=".2s">
-                  <form class="shake" role="form" method="post" id="contactForm" name="contact-form" data-toggle="validator">
-                      <!-- Name -->
-                      <div class="form-group label-floating">
-                        <label class="control-label" for="name">Name</label>
-                        <input class="form-control" id="name" type="text" name="name" required data-error="Please enter your name">
-                        <div class="help-block with-errors"></div>
-                      </div>
-                      <!-- email -->
-                      <div class="form-group label-floating">
-                        <label class="control-label" for="email">Email</label>
-                        <input class="form-control" id="email" type="email" name="email" required data-error="Please enter your Email">
-                        <div class="help-block with-errors"></div>
-                      </div>
-                      <!-- Subject -->
-                      <div class="form-group label-floating">
-                        <label class="control-label">Subject</label>
-                        <input class="form-control" id="msg_subject" type="text" name="subject" required data-error="Please enter your message subject">
-                        <div class="help-block with-errors"></div>
-                      </div>
-                      <!-- Message -->
-                      <div class="form-group label-floating">
-                          <label for="message" class="control-label">Message</label>
-                          <textarea class="form-control" rows="3" id="message" name="message" required data-error="Write your message"></textarea>
-                          <div class="help-block with-errors"></div>
-                      </div>
-                      <!-- Form Submit -->
-                      <div class="form-submit mt-5">
-                          <button class="btn btn-common" type="submit" id="form-submit"><i class="material-icons mdi mdi-message-outline"></i> Send Message</button>
-                          <div id="msgSubmit" class="h3 text-center hidden"></div>
-                          <div class="clearfix"></div>
-                      </div>
-                  </form>
-              </div>
-          </div>
-      </div>
-    </section>
 
+                <div class="find-widget">
+                    Website: <a href="https://www.vinhomesmiennam.net">www.vinhomesmiennam.net</a>
+                </div>
+
+            </div>
+            <!-- contact form -->
+            <div class="col-md-6 wow animated fadeInRight" data-wow-delay=".2s">
+                <form class="shake" role="form" method="post" id="contactForm" name="contact-form" data-toggle="validator" @submit.prevent="sendMail()">
+                    <!-- Name -->
+                    <div class="form-group label-floating">
+                        <label class="control-label" for="name">Name</label>
+                        <input class="form-control" v-model="form.name" id="name" type="text" name="name" required data-error="Please enter your name">
+                        <div class="help-block with-errors"></div>
+                    </div>
+                    <!-- email -->
+                    <div class="form-group label-floating">
+                        <label class="control-label" for="email">Email</label>
+                        <input class="form-control" id="email" v-model="form.email"  type="email" name="email" required data-error="Please enter your Email">
+                        <div class="help-block with-errors"></div>
+                    </div>
+
+                    <!-- Message -->
+                    <div class="form-group label-floating">
+                        <label for="message" class="control-label">Message</label>
+                        <textarea class="form-control" v-model="form.phone" rows="3" id="message" name="message" required data-error="Write your message"></textarea>
+                        <div class="help-block with-errors"></div>
+                    </div>
+                    <!-- Form Submit -->
+                    <div class="form-submit mt-5">
+                        <button class="btn btn-common" type="submit" id="form-submit"><i class="material-icons mdi mdi-message-outline"></i> Send Message</button>
+                        <div id="msgSubmit" class="h3 text-center hidden"></div>
+                        <div class="clearfix"></div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</section>
 </template>
 
-<style  scoped>
+<script>
+export default {
+    data() {
+        return {
+            form: new Form({
+                name: '',
+                email: '',
+                phone: ''
+            })
+        }
+    },
+    methods: {
+
+        sendMail() {
+            const formData = new FormData();
+            formData.set("name", this.name);
+            formData.set("email", this.form.email);
+            formData.set("phone", this.form.phone);
+            axios.post('/sendemail/send', formData).then(response => {
+                this.form.name = '',
+                this.form.email = '',
+                this.form.phone = ''
+                Toast.fire({
+                    icon: "success",
+                    title: "Thanks for contacting us!"
+                });
+            })
+        }
+    },
+
+}
+</script>
+
+<style scoped>
 .section-padding {
     padding: 45px 0;
 }
+
 .section-dark {
     background-color: #f9f9f9;
     z-index: -2;
 }
+
 .form-control,
 .form-group .form-control {
     border: 0;
@@ -296,6 +325,7 @@ fieldset[disabled] .form-group .form-control {
     color: #BDBDBD;
     font-weight: 400
 }
+
 .checkbox label,
 .radio label,
 label {
@@ -589,6 +619,7 @@ select.form-control[multiple] {
     height: 100%;
     z-index: 100
 }
+
 .contact-widget-section .single-contact-widget {
     background: #f9f9f9;
     padding: 20px 25px;
